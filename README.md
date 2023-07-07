@@ -6,6 +6,7 @@ This is a simple Node.js application that implements authorization. It allows us
 
 - LEVEL 1: Storing user's Email and Password in database when user registers and checking the if the user exist's or not.
 - LEVEL 2: Storing user information in a MongoDB database using encryption techniques provided by the mongoose-encryption library.
+- LEVEL 3: Using md5 library for hashing the password.
 
 ## Features
 
