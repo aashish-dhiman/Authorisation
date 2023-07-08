@@ -1,6 +1,6 @@
-# Authorisation
+# Authorization-Secret Website
 
-This is a simple Node.js application that implements authorization. It allows users to register, login, and access secret information if the login is successful.
+This is a secret website built using Node.js, Express.js, Mongoose, EJS, and Passport.js for authentication. The website allows users to register, submit their secrets, and view secrets posted by other users anonymously.
 
 ## Authorization Levels
 
@@ -14,8 +14,35 @@ This is a simple Node.js application that implements authorization. It allows us
 
 - User registration: Users can register by providing an email and password.
 - User login: Users can log in using their registered email and password.
-- Authorization check: The application verifies if the user exists in the database during the login process.
-- Access to secrets: If the login is successful, users are granted access to the "secrets" page.
+
+
+## Features
+
+- User Registration:
+  - Users can register by providing a unique username and password.
+  - The registration process uses Passport.js for local authentication.
+
+- User Login:
+  - Registered users can log in with their credentials.
+  - Passport.js is used for authentication and session management.
+
+- Authorization check: 
+   -The application verifies if the user exists in the database during the login process.
+
+- Access to secrets: 
+   -If the login is successful, users are granted access to the "secrets" page.
+
+- Submit Secrets:
+  - Authenticated users can submit their secrets through the "Submit a Secret" page.
+  - Secrets are stored in the database and associated with the user who submitted them.
+
+- View Secrets:
+  - All registered users, whether logged in or not, can view secrets anonymously.
+  - The "Secrets" page displays secrets posted by users without revealing their identities.
+
+- Logout:
+  - Users can log out from the website using the "Log Out" button.
+
 
 ## Prerequisites
 
@@ -24,6 +51,14 @@ Make sure you have the following installed:
 - Node.js
 - Express.js
 - MongoDB
+
+## Technologies Used
+
+- Node.js: A JavaScript runtime environment.
+- Express.js: A web application framework for Node.js.
+- Mongoose: An object data modeling library for MongoDB and Node.js.
+- EJS: A template engine for generating dynamic HTML pages.
+- Passport.js: An authentication middleware for Node.js.
 
 ## Setup
 
@@ -66,3 +101,41 @@ Make sure you have the following installed:
 - Body-parser: Middleware to handle HTTP request bodies.
 - EJS: Embedded JavaScript templates for rendering HTML pages.
 - Mongoose: MongoDB object modeling tool.
+
+## Installation
+
+1. Clone the repository:
+
+   ```shell
+   git clone <repository-url>
+   ```
+
+2. Install the dependencies:
+
+   ```shell
+   npm install
+   ```
+
+3. Set up environment variables:
+
+   - Create a `.env` file in the root directory.
+   - Add the following environment variables in the `.env` file:
+   
+     ```
+     PORT=3000
+     MONGODB_URI=<your-mongodb-uri>
+     SESSION_SECRET=<session-secret>
+     ```
+
+     Replace `<your-mongodb-uri>` with your MongoDB connection string, and `<session-secret>` with a secret key for session encryption.
+
+4. Start the application:
+
+   ```shell
+   npm start
+   ```
+
+5. Visit `http://localhost:3000` in your browser to access the Secret Website.
+
+
+
