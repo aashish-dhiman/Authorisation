@@ -9,6 +9,7 @@ This is a secret website built using Node.js, Express.js, Mongoose, EJS, and Pas
 - LEVEL 3: Using md5 library for hashing the password.
 - LEVEL 4: Using bcrypt library to hash password using a random salt value for each password hash.
 - LEVEL 5: Using Passport js Local Authentication. Uses Passport's middleware and helper functions, such as passport.authenticate(), req. isAuthenticated(), and req.user, to handle authentication and access control within your routes.
+- LEVEL 6: Implemented Passport.js Google OAuth 2.0 strategy which enables your Node.js application to authenticate users using their Google accounts. By leveraging the Google OAuth 2.0 API, you can allow users to sign in to your application using their Google credentials and access their Google profile information.
 
 ## Features
 
