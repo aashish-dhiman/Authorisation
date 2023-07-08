@@ -48,6 +48,8 @@ mongoose.connect(local_URI, {
 const userSchema = mongoose.Schema({
     email: String,
     password: String,
+    googleID: String,
+    secret: String,
 });
 //mongoose-encryption
 // userSchema.plugin(encrypt, {
@@ -78,11 +80,21 @@ app.get("/register", function (req, res) {
     res.render("register");
 });
 
-app.get("/secrets", function (req, res) {
-    if (req.isAuthenticated()) {
-        res.render("secrets");
-    } else {
-        res.redirect("/login");
+app.get("/secrets", async function (req, res) {
+    // if (req.isAuthenticated()) {
+    //     res.render("secrets");
+    // } else {
+    //     res.redirect("/login");
+    // }
+    try {
+        const users = await User.find({ secret: { $ne: null } });
+        if (users) {
+            res.render("secrets", { usersWithSecrets: users });
+        } else {
+            console.log("No users found with secret");
+        }
+    } catch (error) {
+        res.status(500).json({ Error: error.message });
     }
 });
 
@@ -132,6 +144,27 @@ app.get("/logout", function (req, res) {
         }
         res.redirect("/");
     });
+});
+
+app.get("/submit", function (req, res) {
+    if (req.isAuthenticated()) {
+        res.render("submit");
+    } else {
+        res.redirect("/login");
+    }
+});
+
+app.post("/submit", async function (req, res) {
+    try {
+        const secret = req.body.secret;
+        const user = await User.findOne({ _id: req.user.id });
+
+        user.secret = secret;
+        user.save();
+        res.redirect("/secrets");
+    } catch (error) {
+        res.status(500).json({ Error: error.message });
+    }
 });
 
 app.listen(PORT, function () {
