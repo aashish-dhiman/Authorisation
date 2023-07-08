@@ -8,6 +8,7 @@ This is a simple Node.js application that implements authorization. It allows us
 - LEVEL 2: Storing user information in a MongoDB database using encryption techniques provided by the mongoose-encryption library.
 - LEVEL 3: Using md5 library for hashing the password.
 - LEVEL 4: Using bcrypt library to hash password using a random salt value for each password hash.
+- LEVEL 5: Using Passport js Local Authentication. Uses Passport's middleware and helper functions, such as passport.authenticate(), req. isAuthenticated(), and req.user, to handle authentication and access control within your routes.
 
 ## Features
 
