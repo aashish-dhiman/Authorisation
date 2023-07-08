@@ -12,12 +12,6 @@ This is a secret website built using Node.js, Express.js, Mongoose, EJS, and Pas
 
 ## Features
 
-- User registration: Users can register by providing an email and password.
-- User login: Users can log in using their registered email and password.
-
-
-## Features
-
 - User Registration:
   - Users can register by providing a unique username and password.
   - The registration process uses Passport.js for local authentication.
@@ -60,26 +54,6 @@ Make sure you have the following installed:
 - EJS: A template engine for generating dynamic HTML pages.
 - Passport.js: An authentication middleware for Node.js.
 
-## Setup
-
-1. Clone the repository and navigate to the project directory.
-
-2. Install the dependencies by running the following command:
-   ```
-   npm install
-   ```
-
-3. Set up the MongoDB database:
-   - In the code, the application is configured to use a local MongoDB database. Make sure you have MongoDB installed and running on your machine.
-   - Update the `local_URI` variable in the code with the appropriate MongoDB connection string for your local environment.
-   - Alternatively, you can set the `MONGODB_URI` environment variable to use a different MongoDB connection.
-
-4. Start the application by running the following command:
-   ```
-   npm start
-   ```
-
-5. Access the application in your browser at `http://localhost:3000`.
 
 ## Routes
 
